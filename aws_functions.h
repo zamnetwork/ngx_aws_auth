@@ -416,7 +416,7 @@ static inline struct AwsSignedRequestDetails ngx_aws_auth__compute_signature(ngx
 
 	const ngx_str_t *date = ngx_aws_auth__compute_request_time(pool, &req->start_sec);
 	const struct AwsCanonicalRequestDetails canon_request =
-		ngx_aws_auth__make_canonical_request(pool, req, s3_bucket_name, date, s3_endpoint, aws_security_token));
+		ngx_aws_auth__make_canonical_request(pool, req, s3_bucket_name, date, s3_endpoint, aws_security_token);
 	const ngx_str_t *canon_request_hash = ngx_aws_auth__hash_sha256(pool, canon_request.canon_request);
 
 	// get string to sign
