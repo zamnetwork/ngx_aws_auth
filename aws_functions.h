@@ -440,7 +440,7 @@ static inline const ngx_array_t* ngx_aws_auth__sign(ngx_pool_t *pool, ngx_http_r
 		const ngx_str_t *s3_bucket_name,
     	const ngx_str_t *s3_endpoint,
 		const ngx_str_t *aws_security_token) {
-	const struct AwsSignedRequestDetails signature_details = ngx_aws_auth__compute_signature(pool, req, signing_key, key_scope, s3_bucket_name, s3_endpoint);
+	const struct AwsSignedRequestDetails signature_details = ngx_aws_auth__compute_signature(pool, req, signing_key, key_scope, s3_bucket_name, s3_endpoint, aws_security_token);
 
 
 	const ngx_str_t *auth_header_value = ngx_aws_auth__make_auth_token(pool, signature_details.signature,
